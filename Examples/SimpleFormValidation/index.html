@@ -1,0 +1,105 @@
+
+<!-- IT --> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD (x)HTML 1.0 Strict//EN" "http://www.w3.org/TR/(x)HTML1/DTD/(x)HTML1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/(x)HTML" xml:lang="it" lang="it"> 
+ 
+<head> 
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> 
+	
+	<title>Simple Form Validation - goValidate jQuery plugin example</title> 
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="" /> 
+	
+	<link rel="stylesheet" href="./styles/global.css" type="text/css" media="screen" /> 
+	
+
+	
+</head> 
+<body> 
+ 
+	<div id="contact"> 
+	
+		   
+			
+			<form id="contact-form" method="post" action="index.html"> 
+			
+				<fieldset> 
+				
+				
+					
+						<div> 
+							<label for="tf">Text field <span class="green">*</span></label> 
+            				<input name="tf" class="required free" title="Fill in with some text" /> 
+            			</div> 
+            			
+            			<div> 
+            				<label for="email">E-mail field<span class="green">*</span></label> 
+            				<input name="email" class="required email" title="Check email format" /> 
+            			</div> 
+            			
+            			<div> 
+            				<label for="nf">Number field<span class="green">*</span></label>  
+            				<input name="nf" class="required num"  title="Fill in with some numbers" />     
+            			</div>     
+            			
+            			<div> 
+            				<label for="nfe">Number field valid if empty<span class="green">*</span></label> 
+            				<input name="nfe" class="required num validifempty"   title="Fill in with some numbers or leave empty" />    
+            			</div>   
+            			
+            			<div> 
+            				<label for="df">Data field<span class="green">*</span></label>  
+            				<input name="df" class="required data"   title="Fill in gg/mm/aaaa" />    
+            			</div>      
+            			
+            			<label for="ta">Textarea <span class="green">*</span></label> 
+            			<textarea name="ta" class="required free" title="Fill in with some text" rows="8" cols="1"></textarea> 
+            				
+            			<label for="r1">Radio Buttons<span class="green">*</span></label> 
+            			<input type="radio" name="r1" value="1" class="required" title="Select one radio"/>
+            			<input type="radio" name="r1" value="2" />
+            			
+            			
+            			<label for="cb">Check box<span class="green">*</span></label> 
+            			<input type="checkbox" name="cb" value="1" class="required" title="Select checkbox"/>
+
+						<label for="cbm[]">Multiple check box<span class="green">*</span></label> 
+            			<input type="checkbox" name="cbm[]" value="1" class="required" title="Select at least one checkbox"/>
+            			<input type="checkbox" name="cbm[]" value="2"/>
+            			
+            			<label for="sel">Mandatory select<span class="green">*</span></label> 
+            			<select name="sel" class="required" title="Select at least one value"/>
+            			<option value="">Choose</option>
+            			<option value="1">Opt 1</option>
+            			<option value="2">Opt 2</option>
+            			</select>
+            			                        		
+            			<input type="submit" value="CHECK ME!" id="invia" name="submit" />        
+            	
+            	</fieldset> 
+	
+      	  	</form> 
+      	  	
+   
+	
+	</div> <!-- contact -->  
+
+
+<!-- jQuery  --> 
+<script type="text/javascript" src="./js/jquery.js"></script> 
+<script type="text/javascript" src="./js/jquery.govalidate.js"></script> 
+<script type="text/javascript"> 
+	
+	jQuery(function() {
+					
+		$('#contact-form').submit(function(){
+			checkForm($(this));
+			return false;
+		});
+ 
+	});
+	
+</script>
+</body> 
+</html>

@@ -1,0 +1,92 @@
+/* http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain) */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+table { border-collapse:collapse; border-spacing:0; }
+
+
+body {
+font:11px/14px Trebuchet, Helvetica, Arial, sans-serif;
+color:#2B2B2A;
+text-align:left; 
+background:#dedede; 
+}
+
+
+
+/* -------------------------------- contact -------------------------------- */
+#contact { 
+padding:35px 70px 15px 70px;
+}
+
+form {
+position:relative;
+margin-bottom:30px;
+}
+
+
+
+
+
+#notti input, #persone input, input.antispam { width:80px; }
+
+form label {
+color:#2B2B2A;
+display:block;
+padding-bottom:2px;
+padding-top:10px;
+}
+
+form radio{
+display:block;
+}
+
+form textarea { 
+width:308px; 
+height:152px;
+resize:none;
+overflow:auto;
+display:block;
+} 
+
+form input, form textarea, form radio {
+font:12px/16px Trebuchet, Helvetica, Arial, sans-serif;
+padding:7px 5px;
+background:#fff;
+border:1px solid #CCCCCC; 
+}
+
+form input#invia {
+cursor:pointer;
+background-color:red;
+color:#fff;
+background:#2B2B2A;
+margin-top:30px;
+font-weight:bold;
+display:block;
+}
+
+
+
+form input.error, form textarea.error { border:1px solid #ff0000; }
+
+.green { font-size:13px; line-height:11px; color:#ff0000; }
+
+
+
