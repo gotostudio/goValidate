@@ -2,7 +2,7 @@
  * jQuery goValidate plugin
  * @name jquery.govalidate.js
  * @author Massimiliano Pesente, @ilpes - http://www.gotostudio.it/
- * @version 0.9
+ * @version 0.9 
  * @date April 15, 2011
 */
 
