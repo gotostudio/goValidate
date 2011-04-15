@@ -25,31 +25,36 @@
 		
 		var val				= field.val();								 	//field value
 		
-		var tit 	 		= field.attr('title');						 	//title value
+		var message	 		= field.attr('title');						 	//title value
 		var fieldname 		= field.attr('name');						 	//field name
 		var fieldlabel  	= $('label[for="'+fieldname+'"]'); 			 	//field label 
 	
 		var defaultvalue	= fieldlabel.html();                 		 	//default label value
-		var errorindex  	= defaultvalue.indexOf('<em>('+tit+')</em>');	//error string index
-				
+			
 		switch(field.attr('type')){
 		
 			//txt
 			case 'text':
 			case 'textarea':
 			
-			if(field.hasClass('validifempty') && val == '') return true;
+			if(field.hasClass('validifempty') && val == '') {
+			
+				removeErrorMessage(field, fieldlabel, defaultvalue, message);
+				return true;
+
+			
+			}
 			else{
 				
 				if(regexp.test(val)){
 					
-					removeErrorMessage(field, fieldlabel, errorindex);
+					removeErrorMessage(field, fieldlabel, defaultvalue, message);
 					return true;
 				
 				} 
 				else {
 					
-					addErrorMessage(field,  fieldlabel, defaultvalue, tit);
+					addErrorMessage(field,  fieldlabel, defaultvalue, message);
 					return false;
 				
 				}
@@ -69,10 +74,14 @@
 					if(this.checked) atleastoneselected = true;
 				})
 				
-				if(atleastoneselected) return true
+				if(atleastoneselected) {
+				
+					removeErrorMessage(field, fieldlabel, defaultvalue, message);
+					return true
+				}
 				else {
 					
-					field.focus();
+					addErrorMessage(field,  fieldlabel, defaultvalue, message);
 					return false;
 				
 				}
@@ -81,10 +90,15 @@
 			
 			case 'select-one':
 			
-				if(field.attr('selectedIndex') > 0) return true;
+				if(field.attr('selectedIndex') > 0)  {
+					
+					removeErrorMessage(field, fieldlabel, defaultvalue, message);
+					return true;
+
+				}
 				else {
 					
-					field.focus();
+					addErrorMessage(field,  fieldlabel, defaultvalue, message);
 					return false;
 				
 				}
@@ -98,14 +112,15 @@
 				
 				if(field.attr('checked') == true) {
 				
-					removeErrorMessage(field, fieldlabel, errorindex);
+					removeErrorMessage(field, fieldlabel, defaultvalue, message);
 					return true;
 				
 				} 
 				else {
 					
-					addErrorMessage(field,  fieldlabel, defaultvalue, tit);
+					addErrorMessage(field,  fieldlabel, defaultvalue, message);
 					return false;
+				
 				
 				}
 
@@ -119,10 +134,15 @@
 					if(this.checked) atleastonecbselected = true;
 				});
 				
-				if(atleastonecbselected) return true;
+				if(atleastonecbselected) {
+					
+					removeErrorMessage(field, fieldlabel, defaultvalue, message);
+					return true;
+
+				}
 				else {
 					
-					field.focus();
+					addErrorMessage(field,  fieldlabel, defaultvalue, message);
 					return false;
 				
 				}
@@ -146,11 +166,11 @@
 	
 	}
 	
-	function addErrorMessage(field, fieldlabel, defaultvalue, message){
+	function addErrorMessage(field, fieldlabel, value, message){
 	
-		if(defaultvalue.indexOf(message) == -1) {
+		if(value.indexOf(message) == -1) {
 						
-			fieldlabel.html(defaultvalue+' <em>('+message+')</em>');						  
+			fieldlabel.html(value+' <em>('+message+')</em>');						  
 			field.addClass('error');
 		
 		}
@@ -159,16 +179,21 @@
 
 	}
 	
-	function removeErrorMessage(field, fieldlabel, errorindex){
+	function removeErrorMessage(field, fieldlabel, value, message){
+	
+		var errorindex = value.indexOf('<em>('+message+')</em>')
 	
 		field.removeClass('error');
-					
+		
 		if(errorindex > -1) {
-					
-			var oldstr = fieldlabel.html().substring(0, errorindex - 1);
-			fieldlabel.html(oldstr);
-					
+
+			var defaultvalue = fieldlabel.html().substring(0, errorindex - 1);
+			fieldlabel.html(defaultvalue);
+
 	     }
+		
+					
+
 
 	}
 	
