@@ -3,7 +3,7 @@
  * @name jquery.govalidate.js
  * @author Massimiliano Pesente, @ilpes - http://www.gotostudio.it/
  * @version 0.9 
- * @date June 23, 2011
+ * @date June 24, 2011
 */
 
   	var re_free   		 	= /\S+/;
